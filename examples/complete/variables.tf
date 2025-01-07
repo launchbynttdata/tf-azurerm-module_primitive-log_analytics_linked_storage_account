@@ -15,17 +15,12 @@ variable "data_source_type" {
   type        = string
 }
 
-variable "resource_group_name" {
-  description = "The name of the resource group."
-  type        = string
-}
-
-variable "workspace_resource_id" {
-  description = "The resource ID of the Log Analytics workspace."
-  type        = string
-}
-
-variable "storage_account_ids" {
-  description = "A list of storage account IDs to be linked."
-  type        = list(string)
+variable "resource_names_map" {
+  description = "A map of key to resource_name that will be used by tf-launch-module_library-resource_name to generate resource names"
+  type = map(object(
+    {
+      name       = string
+      max_length = optional(number, 60)
+    }
+  ))
 }

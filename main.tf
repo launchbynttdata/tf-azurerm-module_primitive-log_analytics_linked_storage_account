@@ -9,3 +9,10 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
+resource "azurerm_log_analytics_linked_storage_account" "storage" {
+  data_source_type      = var.data_source_type
+  resource_group_name   = var.resource_group_name
+  workspace_resource_id = var.workspace_resource_id
+  storage_account_ids   = var.storage_account_ids
+}
