@@ -1,11 +1,11 @@
-# Your Module Name
+# tf-azurerm-module_primitive-log_analytics_linked_storage_account
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC_BY--NC--ND_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
 ## Overview
 
-What does this module do?
+This module creates a linkage between a log analytics workspace and one or more storage accounts for a single data type.
 
 ## Pre-Commit hooks
 
