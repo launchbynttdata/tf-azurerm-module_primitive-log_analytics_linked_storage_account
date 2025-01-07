@@ -7,13 +7,15 @@ resource_names_map = {
     name       = "sa"
     max_length = 24
   }
+  log_analytics_workspace = {
+    name       = "law"
+    max_length = 80
+  }
 }
-instance_env              = 0
-instance_resource         = 0
-logical_product_family    = "launch"
-logical_product_service   = "storage"
-class_env                 = "gotest"
-location                  = "eastus"
-account_tier              = "Standard"
-account_replication_type  = "LRS"
-enable_https_traffic_only = true
+logical_product_family  = "launch"
+logical_product_service = "storage"
+region                  = "eastus"
+data_source_type        = "CustomLogs"
+tags = {
+  Purpose = "Terratest"
+}

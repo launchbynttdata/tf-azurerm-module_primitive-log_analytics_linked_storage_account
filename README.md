@@ -103,3 +103,44 @@ If `make check` target is successful, developer is good to commit the code to pr
 - runs `conftests`. `conftests` make sure `policy` checks are successful.
 - runs `terratest`. This is integration test suit.
 - runs `opa` tests
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.0 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 3.77 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.117.0 |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [azurerm_log_analytics_linked_storage_account.storage](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_linked_storage_account) | resource |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_data_source_type"></a> [data\_source\_type](#input\_data\_source\_type) | The type of data source for the linked storage account. | `string` | n/a | yes |
+| <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | The name of the resource group. | `string` | n/a | yes |
+| <a name="input_workspace_resource_id"></a> [workspace\_resource\_id](#input\_workspace\_resource\_id) | The resource ID of the Log Analytics workspace. | `string` | n/a | yes |
+| <a name="input_storage_account_ids"></a> [storage\_account\_ids](#input\_storage\_account\_ids) | A list of storage account IDs to be linked. | `list(string)` | n/a | yes |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_id"></a> [id](#output\_id) | The ID of the linked storage account. |
+| <a name="output_data_source_type"></a> [data\_source\_type](#output\_data\_source\_type) | The data source type of the linked storage account. |
+| <a name="output_storage_account_ids"></a> [storage\_account\_ids](#output\_storage\_account\_ids) | The list of storage account IDs linked to the Log Analytics workspace. |
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

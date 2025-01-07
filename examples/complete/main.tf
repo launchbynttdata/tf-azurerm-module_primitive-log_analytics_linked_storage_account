@@ -16,8 +16,8 @@ module "resource_names" {
 
   for_each = var.resource_names_map
 
-  logical_product_family  = var.product_family
-  logical_product_service = var.product_service
+  logical_product_family  = var.logical_product_family
+  logical_product_service = var.logical_product_service
   region                  = join("", split("-", var.region))
   class_env               = var.environment
   cloud_resource_type     = each.value.name
@@ -30,8 +30,8 @@ module "resource_group" {
   source  = "terraform.registry.launch.nttdata.com/module_primitive/resource_group/azurerm"
   version = "~> 1.0"
 
-  name       = module.resource_names["rg"].minimal_random_suffix
-  location   = var.location
+  name       = module.resource_names["resource_group"].minimal_random_suffix
+  location   = var.region
   tags       = local.tags
   managed_by = var.managed_by
 }
@@ -41,18 +41,25 @@ module "storage_account" {
   version = "~> 1.3"
 
   resource_group_name  = module.resource_group.name
-  location             = var.location
-  storage_account_name = module.resource_names["sa"].minimal_random_suffix_without_any_separators
+  location             = var.region
+  storage_account_name = module.resource_names["storage_account"].minimal_random_suffix_without_any_separators
+  tags                 = local.tags
+
+  depends_on = [module.resource_group]
 }
 
 module "log_analytics_workspace" {
   source  = "terraform.registry.launch.nttdata.com/module_primitive/log_analytics_workspace/azurerm"
-  version = "~> 1.0"
+  version = "~> 1.1"
 
+  name                = module.resource_names["log_analytics_workspace"].minimal_random_suffix
   resource_group_name = module.resource_group.name
-  location            = var.location
-  sku                 = var.sku
-  retention_in_days   = var.retention_in_days
+  location            = var.region
+  sku                 = var.law_sku
+  retention_in_days   = var.law_retention_in_days
+  tags                = local.tags
+
+  depends_on = [module.resource_group]
 }
 
 module "linked_storage" {
@@ -62,5 +69,4 @@ module "linked_storage" {
   resource_group_name   = module.resource_group.name
   workspace_resource_id = module.log_analytics_workspace.id
   storage_account_ids   = [module.storage_account.id]
-
 }
