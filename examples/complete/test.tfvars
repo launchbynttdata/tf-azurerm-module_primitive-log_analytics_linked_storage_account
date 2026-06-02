@@ -15,6 +15,7 @@ resource_names_map = {
 logical_product_family  = "launch"
 logical_product_service = "storage"
 region                  = "eastus"
+law_retention_in_days   = 30
 data_source_type        = "CustomLogs"
 tags = {
   Purpose = "Terratest"

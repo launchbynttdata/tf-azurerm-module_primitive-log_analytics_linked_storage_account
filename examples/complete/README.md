@@ -1,12 +1,12 @@
 # complete
 
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.0 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 3.77 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | >= 3.77, < 5.0 |
 
 ## Providers
 
@@ -41,7 +41,7 @@ No resources.
 | <a name="input_tags"></a> [tags](#input\_tags) | A map of tags to apply to all resources. | `map(string)` | n/a | yes |
 | <a name="input_managed_by"></a> [managed\_by](#input\_managed\_by) | (Optional) The ID of the resource that manages this resource group. | `string` | `null` | no |
 | <a name="input_law_sku"></a> [law\_sku](#input\_law\_sku) | (Optional) Specifies the SKU of the Log Analytics Workspace. Possible values are Free, PerNode, Premium, Standard, Standalone, Unlimited, CapacityReservation, and PerGB2018 (new SKU as of 2018-04-03). Defaults to PerGB2018. | `string` | `null` | no |
-| <a name="input_law_retention_in_days"></a> [law\_retention\_in\_days](#input\_law\_retention\_in\_days) | (Optional) The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730. | `number` | `null` | no |
+| <a name="input_law_retention_in_days"></a> [law\_retention\_in\_days](#input\_law\_retention\_in\_days) | (Optional) The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730. | `number` | `30` | no |
 
 ## Outputs
 
@@ -53,4 +53,4 @@ No resources.
 | <a name="output_workspace_id"></a> [workspace\_id](#output\_workspace\_id) | The ID of the Log Analytics workspace. |
 | <a name="output_linked_storage_account_id"></a> [linked\_storage\_account\_id](#output\_linked\_storage\_account\_id) | The ID of the linked storage account. |
 | <a name="output_linked_storage_account_data_source_type"></a> [linked\_storage\_account\_data\_source\_type](#output\_linked\_storage\_account\_data\_source\_type) | The data source type of the linked storage account. |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- END_TF_DOCS -->
