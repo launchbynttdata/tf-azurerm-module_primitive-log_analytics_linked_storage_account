@@ -28,7 +28,7 @@ module "resource_names" {
 
 module "resource_group" {
   source  = "terraform.registry.launch.nttdata.com/module_primitive/resource_group/azurerm"
-  version = "~> 1.0"
+  version = "~> 1.2"
 
   name       = module.resource_names["resource_group"].minimal_random_suffix
   location   = var.region
@@ -38,7 +38,7 @@ module "resource_group" {
 
 module "storage_account" {
   source  = "terraform.registry.launch.nttdata.com/module_primitive/storage_account/azurerm"
-  version = "~> 1.3"
+  version = "~> 1.4"
 
   resource_group_name  = module.resource_group.name
   location             = var.region
@@ -50,7 +50,7 @@ module "storage_account" {
 
 module "log_analytics_workspace" {
   source  = "terraform.registry.launch.nttdata.com/module_primitive/log_analytics_workspace/azurerm"
-  version = "~> 1.1"
+  version = "~> 1.3"
 
   name                = module.resource_names["log_analytics_workspace"].minimal_random_suffix
   resource_group_name = module.resource_group.name
